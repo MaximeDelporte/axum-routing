@@ -11,5 +11,6 @@ The project contains the list of the following endpoints:
 - /path_variables/:id : Read the dynamic path variable id.
 - /headers : Read the default header's properties.
 - /mirror_custom_header : Read the customs header's properties.
+- /middleware_message : Return a message created inside mod.rs and transmitted inside middleware_message.rs
 
 Cors middleware is added inside mod.rs thanks to tower-http crate.
