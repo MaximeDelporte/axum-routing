@@ -12,5 +12,9 @@ The project contains the list of the following endpoints:
 - **/headers** : Read the default header's properties.
 - **/mirror_custom_header** : Read the customs header's properties.
 - **/middleware_message** : Return a message created inside mod.rs and transmitted inside middleware_message.rs
+- **/middleware_message** : Return a message created inside mod.rs and transmitted inside middleware_message.rs
+- **/middleware_custom_header** : Return a message set by the request's header. The message is read by the read_middleware_custom_header function. This function is used inside a route_layer.
+- **/always_error** : This endpoint returns a 418 error using the Result type.
+- **/returns_201** : This endpoint returns the 201 status code alongside a message thanks to the Response type.
 
 Cors middleware is added inside mod.rs thanks to tower-http crate.
