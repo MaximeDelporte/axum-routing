@@ -11,6 +11,7 @@ mod set_middleware_custom_header;
 mod always_error;
 mod returns_201;
 mod get_json;
+mod validate_with_serde;
 
 use axum::{routing::{get, post}, Router, Extension};
 use axum::http::Method;
@@ -28,6 +29,7 @@ use set_middleware_custom_header::set_middleware_custom_header;
 use always_error::always_error;
 use returns_201::returns_201;
 use get_json::get_json;
+use validate_with_serde::validate_with_serde;
 
 #[derive(Clone)]
 pub struct SharedData {
@@ -63,4 +65,5 @@ pub fn create_routes() -> Router {
         .route("/always_error", get(always_error))
         .route("/returns_201", post(returns_201))
         .route("/get_json", get(get_json))
+        .route("/validate_data", post(validate_with_serde))
 }
