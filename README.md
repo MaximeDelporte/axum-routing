@@ -23,3 +23,12 @@ The project contains the list of the following endpoints:
 - **/custom_json_extractor** : Use of a custom extractor define inside custom_json_extractor.rs. We validate body request thanks to validator crate.
 
 Cors middleware is added inside mod.rs thanks to tower-http crate.
+
+# Database
+
+To launch and access the database, use the terminal and use the following instructions :
+
+- docker-compose up (Will create the database if it's not initialized yet and start the services.)
+- docker-compose exec database /bin/bash (will allow you to go inside PostgreSQL database)
+- psql -U postgres -d postgres (Will allow you to access to postgres command line)
+- \dt (To visualize the database)
