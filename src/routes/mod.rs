@@ -12,8 +12,9 @@ mod always_error;
 mod returns_201;
 mod get_json;
 mod validate_with_serde;
+mod custom_json_extractor;
 
-use axum::{routing::{get, post}, Router, Extension};
+use axum::{routing::{get, post}, Router};
 use axum::http::Method;
 use tower_http::cors::{Any, CorsLayer};
 use hello_world::hello_world;
@@ -30,6 +31,7 @@ use always_error::always_error;
 use returns_201::returns_201;
 use get_json::get_json;
 use validate_with_serde::validate_with_serde;
+use custom_json_extractor::custom_json_extractor;
 
 #[derive(Clone)]
 pub struct SharedData {
@@ -42,7 +44,7 @@ pub fn create_routes() -> Router {
         .allow_origin(Any);
 
     let shared_data = SharedData {
-        message: "Message from shared data.".to_owned(),
+        message: "Message from shared data, I am a state now.".to_owned(),
     };
 
     Router::new()
@@ -60,10 +62,11 @@ pub fn create_routes() -> Router {
         .route("/headers", post(headers))
         .route("/mirror_custom_header", get(mirror_custom_header))
         .route("/middleware_message", get(middleware_message))
-        .layer(Extension(shared_data))
+        .with_state(shared_data)
         .layer(cors)
         .route("/always_error", get(always_error))
         .route("/returns_201", post(returns_201))
         .route("/get_json", get(get_json))
         .route("/validate_data", post(validate_with_serde))
+        .route("/custom_json_extractor", post(custom_json_extractor))
 }

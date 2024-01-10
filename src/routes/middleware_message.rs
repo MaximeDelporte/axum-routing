@@ -1,6 +1,6 @@
-use axum::Extension;
+use axum::extract::State;
 use crate::routes::SharedData;
 
-pub async fn middleware_message(Extension(shared_data): Extension<SharedData>) -> String {
-    return shared_data.message;
+pub async fn middleware_message(State(state): State<SharedData>) -> String {
+    return state.message;
 }
