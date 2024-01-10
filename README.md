@@ -1,5 +1,7 @@
 # axum-routing
 
+axum: 0.7.3
+
 The goal of this project is to learn every basic concepts about axum.
 
 The project contains the list of the following endpoints:
