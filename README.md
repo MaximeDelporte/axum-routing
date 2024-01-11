@@ -4,6 +4,8 @@ axum: 0.7.3
 
 The goal of this project is to learn every basic concepts about axum.
 
+## First project: routing
+
 The project contains the list of the following endpoints:
 
 - **/** : Return a basic "Hello World" message
@@ -24,7 +26,15 @@ The project contains the list of the following endpoints:
 
 Cors middleware is added inside mod.rs thanks to tower-http crate.
 
-# Database
+## Second project: data
+
+The goal of this project is to manipulate a Postgres database.
+
+For this project, the following tools are used:
+- Docker
+- SeaORM (https://www.sea-ql.org/SeaORM/)
+
+### Database
 
 To launch and access the database, use the terminal and use the following instructions :
 
