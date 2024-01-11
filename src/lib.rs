@@ -1,5 +1,5 @@
-mod routes;
-use crate::routes::create_routes;
+mod routing;
+use crate::routing::create_routes;
 
 pub async fn run() {
     let app = create_routes();
