@@ -1,3 +1,8 @@
+use dotenvy::dotenv;
+use data::run;
+
 fn main() {
-    println!("Hello, world!");
+    dotenv().ok();
+    let database_uri = dotenvy::var("DATABASE_URL").unwrap();
+    run(database_uri);
 }
